@@ -1,0 +1,33 @@
+#include <Arduino.h>
+#include <math.h>
+
+int tempPin = 25;
+float Vo;
+float R1 = 10000;
+float logR2, R2, T, temp;
+float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07;
+float tempC;
+
+float get_temp() {
+  Vo = analogRead(tempPin);
+  R2 = R1 * (4096.0 / Vo - 1.0); // R2= R1*(Vin/Vout - 1)
+  logR2 = log(R2);
+  T = (1.0 / (c1 + c2 * logR2 + c3 * logR2 * logR2 * logR2));
+  return T - 273; //độ C
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(tempPin, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  tempC = get_temp();
+  Serial.print("Temperature: ");
+  Serial.print(tempC);
+  Serial.println(" C");
+  delay(1000);
+}
+
