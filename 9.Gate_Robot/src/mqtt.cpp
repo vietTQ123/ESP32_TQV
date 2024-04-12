@@ -1,5 +1,5 @@
 #include <mqtt.h>
-#include <ssd1306.h>
+
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -21,11 +21,11 @@ const char *mqtt_password = "612004";
 const char *topic1 = "listen";
 const int mqtt_port = 1883;
 
-const char *ssid = "AIoT Lab 2G";      // Replace with your WiFi SSID
-const char *password = "ptitlab@123";  // Replace with your WiFi password
+// const char *ssid = "AIoT Lab 2G";      // Replace with your WiFi SSID
+// const char *password = "ptitlab@123";  // Replace with your WiFi password
 
-// const char *ssid = "Thanh Trung";      // Replace with your WiFi SSID
-// const char *password = "17062009";  // Replace with your WiFi password
+const char *ssid = "Thanh Trung";      // Replace with your WiFi SSID
+const char *password = "17062009";  // Replace with your WiFi password
 
 void callback(char *topic, byte *payload, unsigned int length)
 {
@@ -60,7 +60,7 @@ void MQTT_Connect()
         {
             Serial.print("failed with state ");
             Serial.print(client.state());
-            delay(2000);
+            // delay(2000);
         }
     }
 }
@@ -72,7 +72,8 @@ void Set_up()
     WiFi.begin(ssid, password);
     while (WiFi.status() != WL_CONNECTED)
     {
-        delay(100);
+        // delay(100);
+        Connecting_SSD_1306();
         Serial.print(".");
     }
     Serial.println("\nConnected to WiFi");
@@ -93,7 +94,7 @@ void connect_to_broker() {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 2 seconds");
-      delay(2000);
+      // delay(2000);
     }
   }
 }

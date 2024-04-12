@@ -12,5 +12,6 @@ extern uint32_t Freq ;
 extern int flag_pause ;
 extern int count_timer ;
 extern int racing_time ;
+extern int next_screen ;
 
 #endif

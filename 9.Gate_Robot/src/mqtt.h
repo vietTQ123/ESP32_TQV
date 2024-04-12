@@ -8,7 +8,8 @@
 #include <WiFiClient.h>
 #include <PubSubClient.h>
 #include <WiFi.h>
-// #include <system.h>
+#include <system.h>
+#include <ssd1306.h>
 
 extern WiFiClient espClient;
 extern PubSubClient client;
@@ -28,8 +29,8 @@ extern const char *mqtt_username;
 extern const char *mqtt_password;
 extern const int mqtt_port;
 
-// extern const char *ssid;
-// extern const char *password;
+extern const char *ssid;
+extern const char *password;
 
 void callback(char *topic, byte *payload, unsigned int length);
 void MQTT_Connect();

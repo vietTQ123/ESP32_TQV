@@ -19,10 +19,9 @@ uint8_t flag_mqtt_stop=1;
 void Setup_System ()
 {
   Serial.begin(9600);
-  // Http_Setup();
-  // Set_up();
-  Setup_Timer();
   Setup_SSD_1306();
+  Set_up();
+  Setup_Timer();
 
   pinMode(BUTTON_RST,INPUT); 
   pinMode(LAZER,INPUT);
@@ -32,14 +31,12 @@ void Run_System ()
 {
   if(flag_pause==1)
   {
-    // client.loop();
-    // if (!client.connected())
-    // {
-    //   connect_to_broker();
-    // }
-    // client.subscribe(topic_sub);
-
-    // SendData_HttpPost_Json();
+    client.loop();
+    if (!client.connected())
+    {
+      connect_to_broker();
+    }
+    client.subscribe(topic_sub);
 
     stt_lazer_old = stt_lazer_new;
     stt_lazer_new = digitalRead(LAZER);
@@ -69,20 +66,20 @@ void Run_System ()
       count = 0;
     }
 
-    // if((strcmp(buffer,"Reset")==0) && (flag_mqtt_pubish==1))
-    // {
-    //   flag_save = 1;
-    //   flag_mqtt_rst = 1;
-    //   flag_mqtt_waiting = 1;
-    //   flag_mqtt_start = 1;
-    //   flag_mqtt_stop = 1;
-    //   flag_mqtt_pubish = 0;
+    if((strcmp(buffer,"Reset")==0) && (flag_mqtt_pubish==1))
+    {
+      flag_save = 1;
+      flag_mqtt_rst = 1;
+      flag_mqtt_waiting = 1;
+      flag_mqtt_start = 1;
+      flag_mqtt_stop = 1;
+      flag_mqtt_pubish = 0;
 
-    //   racing_time=0;
-    //   count = 0;
+      racing_time=0;
+      count = 0;
     
-    //   buffer[1000]={};
-    // }
+      buffer[1000]={};
+    }
 
     if(flag_save == 1)
     {
@@ -90,7 +87,7 @@ void Run_System ()
       Reset_SSD_1306();
       if((flag_mqtt_rst==1) && (flag_save==1))
       {
-        // client.publish(topic_pub, Rst);
+        client.publish(topic_pub, Rst);
         flag_mqtt_rst=0;
       }
       if(count_reset==100)
@@ -106,7 +103,7 @@ void Run_System ()
         Waiting_SSD_1306();
         if((count==0) && (flag_mqtt_waiting==1))
         {
-          // client.publish(topic_pub, Wait);
+          client.publish(topic_pub, Wait);
           flag_mqtt_waiting = 0;
         }
       }
@@ -115,7 +112,7 @@ void Run_System ()
         Start_SSD_1306();
         if((count == 1) && (flag_mqtt_start ==1))
         {
-          // client.publish(topic_pub, Start);
+          client.publish(topic_pub, Start);
           flag_mqtt_start = 0;
         }
       }
@@ -124,7 +121,7 @@ void Run_System ()
         Stop_SSD_1306();
         if((count==2) && (flag_mqtt_stop==1))
         {
-          // client.publish(topic_pub, Stop);
+          client.publish(topic_pub, Stop);
           flag_mqtt_stop = 0;
         }
       }

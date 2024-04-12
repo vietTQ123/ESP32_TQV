@@ -14,10 +14,11 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
-void Setup_SSD_1306(void);
-void Waiting_SSD_1306(void);
-void Start_SSD_1306(void);
-void Reset_SSD_1306(void);
-void Stop_SSD_1306(void);
+void Setup_SSD_1306 (void);
+void Waiting_SSD_1306 (void);
+void Start_SSD_1306 (void);
+void Reset_SSD_1306 (void);
+void Stop_SSD_1306 (void);
+void Connecting_SSD_1306 (void);
 
 #endif

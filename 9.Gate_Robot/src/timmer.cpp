@@ -5,6 +5,7 @@ uint32_t Freq = 0;
 int flag_pause = 0;
 int count_timer = 0;
 int racing_time = 0;
+int next_screen = 0;
 
 void IRAM_ATTR check_status()
 {
@@ -16,6 +17,16 @@ void IRAM_ATTR check_status()
     {
       racing_time++;
       count_timer=0;
+    }
+  }
+  if(count == 2)
+  {
+    next_screen++;
+    {
+      if(next_screen == 100)
+      {
+        count=0;
+      }
     }
   }
 }
