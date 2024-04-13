@@ -19,12 +19,13 @@ uint8_t flag_mqtt_stop=1;
 void Setup_System ()
 {
   Serial.begin(9600);
-  Setup_SSD_1306();
-  Set_up();
-  Setup_Timer();
 
   pinMode(BUTTON_RST,INPUT); 
   pinMode(LAZER,INPUT);
+
+  Setup_Timer();
+  Setup_SSD_1306();
+  Setup_Mqtt();
 }
 
 void Run_System ()
@@ -99,7 +100,7 @@ void Run_System ()
     else
     {
       if(count==0)
-      {
+      { 
         Waiting_SSD_1306();
         if((count==0) && (flag_mqtt_waiting==1))
         {

@@ -25,7 +25,13 @@ void IRAM_ATTR check_status()
     {
       if(next_screen == 100)
       {
+        next_screen=0;
         count=0;
+        racing_time=0;
+        flag_mqtt_rst = 1;
+        flag_mqtt_waiting = 1;
+        flag_mqtt_start = 1;
+        flag_mqtt_stop = 1;
       }
     }
   }
@@ -38,4 +44,3 @@ void Setup_Timer()
   timerAlarmWrite(Timer0_Cfg, 500, true); //50ms
   timerAlarmEnable(Timer0_Cfg);
 }
-

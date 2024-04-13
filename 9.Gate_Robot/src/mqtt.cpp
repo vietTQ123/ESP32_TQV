@@ -21,11 +21,11 @@ const char *mqtt_password = "612004";
 const char *topic1 = "listen";
 const int mqtt_port = 1883;
 
-// const char *ssid = "AIoT Lab 2G";      // Replace with your WiFi SSID
-// const char *password = "ptitlab@123";  // Replace with your WiFi password
+const char *ssid = "AIoT Lab 2G";      // Replace with your WiFi SSID
+const char *password = "ptitlab@123";  // Replace with your WiFi password
 
-const char *ssid = "Thanh Trung";      // Replace with your WiFi SSID
-const char *password = "17062009";  // Replace with your WiFi password
+// const char *ssid = "Thanh Trung";      // Replace with your WiFi SSID
+// const char *password = "17062009";  // Replace with your WiFi password
 
 void callback(char *topic, byte *payload, unsigned int length)
 {
@@ -65,7 +65,7 @@ void MQTT_Connect()
     }
 }
 
-void Set_up()
+void Setup_Mqtt()
 {
     Serial.begin(9600); 
     Serial.println("Connecting to WiFi...");

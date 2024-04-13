@@ -34,7 +34,7 @@ extern const char *password;
 
 void callback(char *topic, byte *payload, unsigned int length);
 void MQTT_Connect();
-void Set_up();
+void Setup_Mqtt();
 void run();
 void connect_to_broker();
 
