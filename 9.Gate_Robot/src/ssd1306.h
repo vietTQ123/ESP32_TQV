@@ -5,10 +5,11 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <SPI.h>
-#include <Fonts/DSEG7_Classic_Bold_22.h>
 #include "timmer.h"
 
 #include <Fonts/FreeSansBold9pt7b.h>
+#include <Fonts/DSEG7_Classic_Bold_22.h>
+#include <Fonts/DSEG7_Classic_Bold_16.h>
 
 #define SCREEN_I2C_ADDR 0x3C 
 #define SCREEN_WIDTH 128

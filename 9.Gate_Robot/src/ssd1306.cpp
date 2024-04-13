@@ -49,37 +49,21 @@ void Start_SSD_1306()
     display.setFont(&FreeSansBold9pt7b);
     display.setTextSize(1);
     display.setTextColor(WHITE);
-    display.setCursor(43, 11);
+    display.setCursor(43, 12);
     display.println("Start");
-    display.setFont(&DSEG7_Classic_Bold_22);
-    if(racing_time < 10)
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(55,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 20) && (racing_time >= 10) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(42,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 100) && (racing_time >= 20) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(45,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 1000) && (racing_time >= 100) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(35,50);
-        display.println(racing_time);
-    }
+    display.setFont(&DSEG7_Classic_Bold_16);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(13, 50);
+    display.print((racing_time_minute/10) % 10);
+    display.print(racing_time_minute % 10);
+    display.print(":");
+    display.print((racing_time_second/10) % 10);
+    display.print(racing_time_second % 10);
+    display.print(":");
+    display.print((racing_time_ms/100) % 10);
+    display.print((racing_time_ms/10) % 10);
+    display.print(racing_time_ms % 10);
     display.display();
 }
 
@@ -91,34 +75,18 @@ void Stop_SSD_1306()
     display.setTextColor(WHITE);
     display.setCursor(45, 11);
     display.println("Stop");
-    display.setFont(&DSEG7_Classic_Bold_22);
-    if(racing_time < 10)
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(55,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 20) && (racing_time >= 10) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(42,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 100) && (racing_time >= 20) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(45,50);
-        display.println(racing_time);
-    }
-    if((racing_time < 1000) && (racing_time >= 100) )
-    {
-        display.setTextSize(1);
-        display.setTextColor(WHITE);
-        display.setCursor(35,50);
-        display.println(racing_time);
-    }
+    display.setFont(&DSEG7_Classic_Bold_16);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(13, 50);
+    display.print((racing_time_minute/10) % 10);
+    display.print(racing_time_minute % 10);
+    display.print(":");
+    display.print((racing_time_second/10) % 10);
+    display.print(racing_time_second % 10);
+    display.print(":");
+    display.print((racing_time_ms/100) % 10);
+    display.print((racing_time_ms/10) % 10);
+    display.print(racing_time_ms % 10);
     display.display();
 }

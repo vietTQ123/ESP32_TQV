@@ -9,9 +9,13 @@ void Setup_Timer();
 
 extern hw_timer_t *Timer0_Cfg ;
 extern uint32_t Freq ;
+
 extern int flag_pause ;
-extern int count_timer ;
-extern int racing_time ;
+// extern int count_timer ;
+extern int racing_time_ms;
+extern int racing_time_second ;
+extern int racing_time_minute ;
+
 extern int next_screen ;
 
 #endif
