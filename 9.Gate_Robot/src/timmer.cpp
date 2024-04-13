@@ -27,7 +27,7 @@ void IRAM_ATTR check_status()
       {
         next_screen=0;
         count=0;
-        racing_time=0;
+        racing_time = 0;
         flag_mqtt_rst = 1;
         flag_mqtt_waiting = 1;
         flag_mqtt_start = 1;

@@ -95,6 +95,8 @@ void Run_System ()
       {
         count_reset=0;
         flag_save=0;
+        count= 0;
+        racing_time=0;
       }
     }
     else

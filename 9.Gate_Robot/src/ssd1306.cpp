@@ -89,7 +89,7 @@ void Stop_SSD_1306()
     display.setFont(&FreeSansBold9pt7b);
     display.setTextSize(1);
     display.setTextColor(WHITE);
-    display.setCursor(43, 11);
+    display.setCursor(45, 11);
     display.println("Stop");
     display.setFont(&DSEG7_Classic_Bold_22);
     if(racing_time < 10)
