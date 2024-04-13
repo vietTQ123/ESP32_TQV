@@ -41,7 +41,7 @@ void Run_System ()
 
     stt_lazer_old = stt_lazer_new;
     stt_lazer_new = digitalRead(LAZER);
-    if((stt_lazer_old == 1) && (stt_lazer_new == 0) && (flag_state == 0))
+    if((stt_lazer_old == 0) && (stt_lazer_new == 1) && (flag_state == 0))
     {
       count++;
       flag_state = 1;
