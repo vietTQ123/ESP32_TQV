@@ -16,17 +16,17 @@ void IRAM_ATTR check_status()
   if(count == 1)
   {
     racing_time_ms++;
-    if(racing_time_ms == 999)
+    if(racing_time_ms > 999)
     {
       racing_time_second ++;
       racing_time_ms = 0;
     }
-    if(racing_time_second == 59)
+    if(racing_time_second > 59)
     {
       racing_time_minute ++;
       racing_time_second = 0;
     }
-    if(racing_time_minute == 59)
+    if(racing_time_minute > 59)
     {
       racing_time_minute = 0;
       racing_time_second = 0;
@@ -37,7 +37,7 @@ void IRAM_ATTR check_status()
   {
     next_screen++;
     {
-      if(next_screen == 5000)
+      if(next_screen > 5000)
       {
         next_screen  = 0;
 
