@@ -1,10 +1,9 @@
 #include "timmer.h"
 
 hw_timer_t *Timer0_Cfg = NULL;
-uint32_t Freq = 0;
 
 int flag_pause = 0;
-// int count_timer = 0;
+
 int racing_time_ms = 0;
 int racing_time_second = 0;
 int racing_time_minute = 0;
@@ -47,10 +46,9 @@ void IRAM_ATTR check_status()
         racing_time_second = 0;
         racing_time_minute = 0;
 
-        flag_mqtt_rst = 1;
-        flag_mqtt_waiting = 1;
-        flag_mqtt_start = 1;
-        flag_mqtt_stop = 1;
+        flag_http_rst = 1;
+        flag_http_start = 1;
+        flag_http_stop = 1;
       }
     }
   }

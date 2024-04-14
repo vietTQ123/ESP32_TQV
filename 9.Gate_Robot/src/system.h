@@ -5,18 +5,17 @@
 #include <mqtt.h>
 #include <ssd1306.h>
 #include <timmer.h>
-// #include <http.h>
+#include <lib_http.h>
 
 #define BUTTON_RST 5
 #define LAZER 12
 
-extern uint8_t flag_mqtt_rst;
-extern uint8_t flag_mqtt_waiting;
-extern uint8_t flag_mqtt_start;
-extern uint8_t flag_mqtt_stop;
-
 extern int count;
 extern int flag_save;
+
+extern uint8_t flag_http_rst;
+extern uint8_t flag_http_start;
+extern uint8_t flag_http_stop;
 
 void Run_System ();
 void Setup_System ();
