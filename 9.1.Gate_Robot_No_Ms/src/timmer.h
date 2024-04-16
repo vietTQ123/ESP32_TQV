@@ -11,9 +11,9 @@ extern hw_timer_t *Timer0_Cfg ;
 
 extern int flag_pause ;
 
-extern int racing_time_ms;
-extern int racing_time_second ;
-extern int racing_time_minute ;
+// extern int racing_time_ms;
+// extern int racing_time_second ;
+// extern int racing_time_minute ;
 
 extern int next_screen ;
 

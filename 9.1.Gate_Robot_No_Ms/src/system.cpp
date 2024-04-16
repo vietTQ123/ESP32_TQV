@@ -54,9 +54,9 @@ void Run_System ()
     {
       flag_save = 1;
 
-      racing_time_ms = 0;
-      racing_time_second = 0;
-      racing_time_minute = 0;
+      // racing_time_ms = 0;
+      // racing_time_second = 0;
+      // racing_time_minute = 0;
 
       count = 0;
     }
@@ -65,7 +65,7 @@ void Run_System ()
     {
       count_reset++;
 
-      Reset_SSD_1306();
+      // Reset_SSD_1306();
 
       if((flag_http_rst == 1) && (flag_save == 1))
       {
@@ -79,9 +79,9 @@ void Run_System ()
 
         count = 0;
 
-        racing_time_ms = 0;
-        racing_time_second = 0;
-        racing_time_minute = 0;
+        // racing_time_ms = 0;
+        // racing_time_second = 0;
+        // racing_time_minute = 0;
 
         flag_save = 0;
       }
@@ -90,11 +90,11 @@ void Run_System ()
     {
       if(count == 0)
       { 
-        Waiting_SSD_1306();
+        // Waiting_SSD_1306();
       }
       if(count == 1)
       {
-        Start_SSD_1306();
+        // Start_SSD_1306();
         if((count == 1) && (flag_http_start ==1))
         {
           HTTP_GETRequest(DOOR, START);
@@ -103,7 +103,7 @@ void Run_System ()
       }
       if(count==2)
       {
-        Stop_SSD_1306();
+        // Stop_SSD_1306();
         if((count == 2) && (flag_http_stop == 1))
         {
           HTTP_GETRequest(DOOR, STOP);
@@ -111,5 +111,6 @@ void Run_System ()
         }
       }
     }
+    flag_pause = 0;
   }
 }
