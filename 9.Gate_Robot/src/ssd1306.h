@@ -8,7 +8,7 @@
 #include "timmer.h"
 
 #include <Fonts/FreeSansBold9pt7b.h>
-#include <Fonts/DSEG7_Classic_Bold_22.h>
+// #include <Fonts/DSEG7_Classic_Bold_22.h>
 #include <Fonts/DSEG7_Classic_Bold_16.h>
 
 #define SCREEN_I2C_ADDR 0x3C 

@@ -53,7 +53,6 @@ void Reset_SSD_1306()
     display.display();
 }
 
-
 void Start_SSD_1306()
 {
     display.clearDisplay();
