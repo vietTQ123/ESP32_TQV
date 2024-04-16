@@ -20,6 +20,17 @@ void Connecting_SSD_1306()
     display.display();
 }
 
+void Connected_SSD_1306()
+{
+    display.clearDisplay();
+    display.setFont(&FreeSansBold9pt7b);
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(13, 37);
+    display.println("Connected");
+    display.display();
+}
+
 void Waiting_SSD_1306()
 {
     display.clearDisplay();

@@ -9,6 +9,8 @@
 #include <system.h>
 
 #define DEGUB_CONNECT_WIFI 0
+#define DEGUB_CONNECT_WIFI_1 0
+#define DEGUB_CONNECT_WIFI_2 1
 
 extern const char *ssid;
 extern const char *password;

@@ -111,5 +111,6 @@ void Run_System ()
         }
       }
     }
+    flag_pause = 0;
   }
 }

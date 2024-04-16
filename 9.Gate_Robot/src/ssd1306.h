@@ -21,5 +21,6 @@ void Start_SSD_1306 (void);
 void Reset_SSD_1306 (void);
 void Stop_SSD_1306 (void);
 void Connecting_SSD_1306 (void);
+void Connected_SSD_1306(void);
 
 #endif
