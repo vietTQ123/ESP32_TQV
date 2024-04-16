@@ -7,7 +7,7 @@
 #include <timmer.h>
 #include <lib_http.h>
 
-#define DOOR "door2"
+#define DOOR "door1"
 #define START "start"
 #define STOP "stop"
 
