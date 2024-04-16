@@ -69,7 +69,7 @@ void Run_System ()
 
       if((flag_http_rst == 1) && (flag_save == 1))
       {
-        // HTTP_GETRequest("door1", "stop");
+        HTTP_GETRequest(DOOR, STOP);
         flag_http_rst= 0;
       }
       
@@ -97,7 +97,7 @@ void Run_System ()
         Start_SSD_1306();
         if((count == 1) && (flag_http_start ==1))
         {
-          // HTTP_GETRequest("door1", "start");
+          HTTP_GETRequest(DOOR, START);
           flag_http_start = 0;
         }
       }
@@ -106,7 +106,7 @@ void Run_System ()
         Stop_SSD_1306();
         if((count == 2) && (flag_http_stop == 1))
         {
-          // HTTP_GETRequest("door1", "stop");
+          HTTP_GETRequest(DOOR, STOP);
           flag_http_stop = 0;
         }
       }

@@ -8,7 +8,7 @@
 #include <ArduinoJson.h>
 #include <system.h>
 
-#define DEGUB_CONNECT_WIFI 0
+#define DEGUB_CONNECT_WIFI 1
 
 extern const char *ssid;
 extern const char *password;

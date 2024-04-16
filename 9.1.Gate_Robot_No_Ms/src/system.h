@@ -7,6 +7,10 @@
 #include <timmer.h>
 #include <lib_http.h>
 
+#define DOOR "door2"
+#define START "start"
+#define STOP "stop"
+
 #define BUTTON_RST 5
 #define LAZER 12
 
