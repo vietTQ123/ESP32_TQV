@@ -131,6 +131,31 @@ void blade_fault()
     }
 }
 
+void broken_blades()
+{
+    tft.pushImage(60, 100, 128, 128, fan_broken_blades);
+
+    tft.fillRect(20, 240, 220, 30, TFT_WHITE);
+    tft.setFreeFont(&FreeSansBold12pt7b);
+    tft.setTextColor(TFT_BLACK);
+    tft.drawString("BROKEN BLADES", 40, 240);
+
+    if (count % 2 == 0)
+    {
+        tft.fillRect(0, 50, 240, 10, TFT_RED);
+        tft.fillRect(0, 50, 10, 320, TFT_RED);
+        tft.fillRect(230, 50, 10, 320, TFT_RED);
+        tft.fillRect(0, 310, 240, 10, TFT_RED);
+    }
+    else
+    {
+        tft.fillRect(0, 50, 240, 10, TFT_WHITE);
+        tft.fillRect(0, 50, 10, 320, TFT_WHITE);
+        tft.fillRect(230, 50, 10, 320, TFT_WHITE);
+        tft.fillRect(0, 310, 240, 10, TFT_WHITE);
+    }
+}
+
 void setup_tft()
 {
     Timer0_Cfg = timerBegin(0, 8000, true);
@@ -172,8 +197,8 @@ void run_tft()
     // flow_blocked();
     // delay(1000);
 
-    blade_fault();
-    delay(1000);
+    // blade_fault();
+    // delay(1000);
 
     // mount_fault();
     // delay(1000);

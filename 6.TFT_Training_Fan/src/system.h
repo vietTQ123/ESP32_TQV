@@ -18,5 +18,6 @@ void tapping();
 void mount_fault();
 void flow_blocked();
 void blade_fault();
+void broken_blades();
 
 #endif

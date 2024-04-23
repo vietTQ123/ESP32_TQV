@@ -8,7 +8,8 @@ enum state {
     TAP = 2,
     MOUNT_FALL = 3,
     FLOW_BLOCK = 4,
-    BLADE_FAULT = 5
+    BLADE_FAULT = 5,
+    BROKEN_BLADES =6
 };
 
 void setup()
@@ -48,6 +49,10 @@ void loop()
     case BLADE_FAULT:
         Serial.println("BLADE FAULT");
         blade_fault();
+        break;
+    case BROKEN_BLADES:
+        Serial.println("BROKEN BLADES");
+        broken_blades();
         break;
     default:
         off();
