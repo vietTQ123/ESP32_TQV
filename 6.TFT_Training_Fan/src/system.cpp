@@ -138,7 +138,7 @@ void broken_blades()
     tft.fillRect(20, 240, 220, 30, TFT_WHITE);
     tft.setFreeFont(&FreeSansBold12pt7b);
     tft.setTextColor(TFT_BLACK);
-    tft.drawString("BROKEN BLADES", 40, 240);
+    tft.drawString("BROKEN BLADES", 35, 240);
 
     if (count % 2 == 0)
     {
