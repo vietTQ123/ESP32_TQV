@@ -7,4 +7,6 @@ void setup()
 
 void loop()
 {
+  TFT_Healthy_Chicken();
+  TFT_Unhealthy_Chicken();
 }

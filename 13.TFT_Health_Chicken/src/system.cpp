@@ -2,6 +2,7 @@
 
 TFT_eSPI tft = TFT_eSPI();
 
+
 void TFT_Setup()
 {
     Serial.begin(115200);
@@ -10,6 +11,9 @@ void TFT_Setup()
     tft.setRotation(2);
     tft.fillScreen(TFT_WHITE);
     tft.setSwapBytes(true);
+
+    tft.pushImage(0, 192, 120, 120, healthy_chicken);
+    tft.pushImage(120, 192, 120, 120, unhealthy_chicken);
 
     tft.fillRect(0,0,120,60,TFT_GREEN);
     tft.fillRect(120,0,120,60,TFT_RED);
@@ -27,7 +31,18 @@ void TFT_Setup()
 
 }
 
-void TFT_healthy()
+void TFT_Healthy_Chicken()
 {
+    tft.fillRect(0,100,119,50,TFT_WHITE);
+    tft.drawString("20",27,100,7);
+} 
 
+void TFT_Unhealthy_Chicken()
+{
+    tft.fillRect(122,100,119,50,TFT_WHITE);
+    tft.drawString("11",145,100,7);
 }
+
+// tọa độ 1 : 37,100,7 / 157,100,7
+// tọa độ 0,2,3,4,5,6,7,8,9 : 45,100,7 / 167,100,7
+// tọa độ 10 -> 20 : 27,100,7 / 145,100,7
