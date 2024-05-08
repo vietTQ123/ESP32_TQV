@@ -11,7 +11,6 @@
 
 
 void TFT_Setup (void);
-void TFT_Healthy_Chicken (void);
 void TFT_Unhealthy_Chicken (void);
 
 #endif
