@@ -15,16 +15,13 @@ void TFT_Setup()
     tft.pushImage(120, 35, 120, 120, healthy_chicken);
     tft.pushImage(120, 195, 120, 120, unhealthy_chicken);
 
-    // tft.fillRect(0,0,120,60,TFT_GREEN);
-    // tft.fillRect(120,0,120,60,TFT_RED);
-
-    tft.setFreeFont(&FreeMonoBold12pt7b);
+    tft.setFreeFont(&FreeSansBold12pt7b);
 
     tft.setTextColor(TFT_GREEN);
-    tft.drawString("HEALTHY", 15, 10);
+    tft.drawString("HEALTHY", 12, 10);
 
     tft.setTextColor(TFT_RED);
-    tft.drawString("UNHEALTHY", 5, 170);
+    tft.drawString("UNHEALTHY", 3, 170);
 
     tft.drawFastHLine(0,160,240,TFT_BLACK);
 
