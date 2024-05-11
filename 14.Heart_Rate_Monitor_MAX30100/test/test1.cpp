@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <Wire.h>
 #include "MAX30100_PulseOximeter.h"
 
@@ -32,7 +31,7 @@ void setup() {
 	pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
 
     // Register a callback routine
-  pox.setOnBeatDetectedCallback(onBeatDetected);
+    pox.setOnBeatDetectedCallback(onBeatDetected);
 }
 
 void loop() {
