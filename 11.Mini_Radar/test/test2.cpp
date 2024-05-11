@@ -19,7 +19,7 @@ int distance;
 int k;
 
 
-Ucglib_ST7735_18x128x160_HWSPI ucg(/*cd=*/ 9, /*cs=*/ 10, /*reset=*/ 8);
+Ucglib_ST7735_18x128x160_HWSPI ucg(/*cd=*/ 12, /*cs=*/ 10, /*reset=*/ 8);
 
 void setup(void)
 {
