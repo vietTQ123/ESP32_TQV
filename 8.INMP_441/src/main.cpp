@@ -10,7 +10,7 @@
 #define I2S_SCK GPIO_NUM_2
 #define I2S_PORT I2S_NUM_0
 
-#define SAMPLE_RATE 48000
+#define SAMPLE_RATE 44100
 
 #define I2S_MIC_CHANNEL I2S_CHANNEL_FMT_ONLY_LEFT
 
@@ -40,7 +40,7 @@ ArduinoFFT<double> FFT = ArduinoFFT<double>(vReal, vImag, samples, samplingFrequ
 
 // raw waveform data:
 #ifdef USE_32BIT_SAMPLING
-#define MIC_BITS_PER_SAMPLE  I2S_BITS_PER_SAMPLE_32BIT
+#define MIC_BITS_PER_SAMPLE  I2S_BITS_PER_SAMPLE_16BIT
 int32_t wave[SAMPLE_BUFFER_SIZE];
 #else
 #define MIC_BITS_PER_SAMPLE  I2S_BITS_PER_SAMPLE_16BIT
@@ -162,8 +162,8 @@ void showWaveform() {   // Input waveform display
     int x = PX2 + i;
     int y1 = PY1 - wave[i] / factor - offset;
     int y2 = PY1 - wave[i + 1] / factor - offset;
-    //u8g2.drawLine(PX2 + i, PY1 - (wave[i * 2]) / 256, PX2 + i + 1, 16 - (wave[i * 2 + 1] / 256)); // waveform plot
-    u8g2.drawLine(x, y1, x + 1, y2); // waveform plot
+    u8g2.drawLine(PX2 + i, PY1 - (wave[i * 2]) / 256, PX2 + i + 1, 16 - (wave[i * 2 + 1] / 256)); // waveform plot
+    // u8g2.drawLine(x, y1, x + 1, y2); // waveform plot
   }
 }
  
