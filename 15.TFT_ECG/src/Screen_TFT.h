@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <TFT_eSPI.h>
+#include <ArduinoJson.h>
 #include <SPI.h>
 #include <img.h>
 #include <Fonts/GFXFF/nulshock_bd9pt7b.h>
