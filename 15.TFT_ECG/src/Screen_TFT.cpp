@@ -9,6 +9,7 @@ static int data_F;
 static int data_Q;
 static int Reset;
 static int Stop;
+static int Start;
 
 int data_N_new;
 int data_N_old;
@@ -21,7 +22,10 @@ int data_F_old;
 int data_Q_new;
 int data_Q_old;
 
+uint32_t delay_reset = 0;
+
 static int flag = 0;
+static int flag_reset = 0;
 
 void TFT_Setup()
 {
@@ -64,195 +68,281 @@ void TFT_Screen()
         data_Q = doc["Q"];
         Reset = doc["Reset"];
         Stop = doc["Stop"];
+        Start = doc["Start"];
 
         flag = 1;
+
+        if (Reset == 1 && Stop != 1 && flag_reset == 0)
+        {
+            data_N = 0;
+            data_S = 0;
+            data_V = 0;
+            data_F = 0;
+            data_Q = 0;
+
+            flag_reset = 1;
+
+            delay_reset = millis();
+        }
+
+        if (Stop == 1 && Reset != 1)
+        {
+            flag = 0;
+        }
     }
 
     if (flag == 1)
     {
-        Serial.print("N: ");
-        Serial.println(data_N);
-        Serial.print("S: ");
-        Serial.println(data_S);
-        Serial.print("V: ");
-        Serial.println(data_V);
-        Serial.print("F: ");
-        Serial.println(data_F);
-        Serial.print("Q: ");
-        Serial.println(data_Q);
-        Serial.print("Reset: ");
-        Serial.println(Reset);
-        Serial.print("Stop: ");
-        Serial.println(Stop);
-
-        data_N_new = data_N;
-        data_S_new = data_S;
-        data_V_new = data_V;
-        data_F_new = data_F;
-        data_Q_new = data_Q;
-
-        tft.setFreeFont(&nulshock_bd12pt7b);
-
-        tft.setTextColor(ILI9341_BLACK);
-        tft.drawString("N", 67, 175);
-        tft.drawString("S", 153, 175);
-        tft.drawString("V", 30, 240);
-        tft.drawString("F", 115, 240);
-        tft.drawString("Q", 190, 240);
-
-        tft.setFreeFont(&nulshock_bd9pt7b);
-
-        if (data_N_new != data_N_old)
+        if (flag_reset == 1)
         {
-            tft.fillRect(0, 205, 120, 30, ILI9341_WHITE);
+            data_N_new = data_N;
+            data_S_new = data_S;
+            data_V_new = data_V;
+            data_F_new = data_F;
+            data_Q_new = data_Q;
 
-            data_N_old = data_N_new;
-        }
+            tft.setFreeFont(&nulshock_bd12pt7b);
 
-        tft.setTextColor(ILI9341_BLACK);
+            tft.setTextColor(ILI9341_BLACK);
+            tft.drawString("N", 67, 175);
+            tft.drawString("S", 153, 175);
+            tft.drawString("V", 30, 240);
+            tft.drawString("F", 115, 240);
+            tft.drawString("Q", 190, 240);
 
-        if (0 <= data_N && data_N <= 9)
-        {
+            tft.setFreeFont(&nulshock_bd9pt7b);
+
+            if (data_N_new != data_N_old)
+            {
+                tft.fillRect(0, 205, 120, 30, ILI9341_WHITE);
+
+                data_N_old = data_N_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
             tft.setCursor(72, 220);
-            tft.println(data_N);
-        }
-        else if (10 <= data_N && data_N <= 99)
-        {
-            tft.setCursor(65, 220);
-            tft.println(data_N);
-        }
-        else if (100 <= data_N && data_N <= 999)
-        {
-            tft.setCursor(58, 220);
-            tft.println(data_N);
-        }
-        else if (1000 <= data_N && data_N <=9999)
-        {
-            tft.setCursor(50, 220);
-            tft.println(data_N);
-        }
+            tft.println('0');
 
-        if (data_S_new != data_S_old)
-        {
-            tft.fillRect(120, 205, 120, 30, ILI9341_WHITE);
+            if (data_S_new != data_S_old)
+            {
+                tft.fillRect(120, 205, 120, 30, ILI9341_WHITE);
 
-            data_S_old = data_S_new;
-        }
+                data_S_old = data_S_new;
+            }
 
-        tft.setTextColor(ILI9341_BLACK);
-
-        if (0 <= data_S && data_S <= 9)
-        {
+            tft.setTextColor(ILI9341_BLACK);
             tft.setCursor(157, 220);
-            tft.println(data_S);
-        }
-        else if (10 <= data_S && data_S <= 99)
-        {
-            tft.setCursor(150, 220);
-            tft.println(data_S);
-        }
-        else if (100 <= data_S && data_S <= 999)
-        {
-            tft.setCursor(143, 220);
-            tft.println(data_S);
-        }
-        else if (1000 <= data_S && data_S <= 9999)
-        {
-            tft.setCursor(135, 220);
-            tft.println(data_S);
-        }
+            tft.println('0');
 
-        if (data_V_new != data_V_old)
-        {
-            tft.fillRect(0, 275, 80, 30, ILI9341_WHITE);
+            if (data_V_new != data_V_old)
+            {
+                tft.fillRect(0, 275, 80, 30, ILI9341_WHITE);
 
-            data_V_old = data_V_new;
-        }
+                data_V_old = data_V_new;
+            }
 
-        tft.setTextColor(ILI9341_BLACK);
-
-        if (0 <= data_V && data_V <= 9)
-        {
+            tft.setTextColor(ILI9341_BLACK);
             tft.setCursor(37, 290);
-            tft.println(data_V);
-        }
-        else if (10 <= data_V && data_V <= 99)
-        {
-            tft.setCursor(30, 290);
-            tft.println(data_V);
-        }
-        else if (100 <= data_V && data_V <= 999)
-        {
-            tft.setCursor(20, 290);
-            tft.println(data_V);
-        }
-        else if (1000 <= data_V && data_V <= 9999)
-        {
-            tft.setCursor(15, 290);
-            tft.println(data_V);
-        }
+            tft.println('0');
 
-        if (data_F_new != data_F_old)
-        {
-            tft.fillRect(80, 275, 80, 30, ILI9341_WHITE);
+            if (data_F_new != data_F_old)
+            {
+                tft.fillRect(80, 275, 80, 30, ILI9341_WHITE);
 
-            data_F_old = data_F_new;
-        }
+                data_F_old = data_F_new;
+            }
 
-        tft.setTextColor(ILI9341_BLACK);
-
-        if (0 <= data_F && data_F <= 9)
-        {
+            tft.setTextColor(ILI9341_BLACK);
             tft.setCursor(117, 290);
-            tft.println(data_F);
-        }
-        else if (10 <= data_F && data_F <= 99)
-        {
-            tft.setCursor(110, 290);
-            tft.println(data_F);
-        }
-        else if (100 <= data_F && data_F <= 999)
-        {
-            tft.setCursor(100, 290);
-            tft.println(data_F);
-        }
-        else if (1000 <= data_F && data_F <= 9999)
-        {
-            tft.setCursor(95, 290);
-            tft.println(data_F);
-        }
+            tft.println('0');
 
-        if (data_Q_new != data_Q_old)
-        {
-            tft.fillRect(160, 275, 80, 30, ILI9341_WHITE);
+            if (data_Q_new != data_Q_old)
+            {
+                tft.fillRect(160, 275, 80, 30, ILI9341_WHITE);
 
-            data_Q_old = data_Q_new;
-        }
+                data_Q_old = data_Q_new;
+            }
 
-        tft.setTextColor(ILI9341_BLACK);
-
-        if (0 <= data_Q && data_Q <= 9)
-        {
+            tft.setTextColor(ILI9341_BLACK);
             tft.setCursor(197, 290);
-            tft.println(data_Q);
+            tft.println('0');
         }
-        else if (10 <= data_Q && data_Q <= 99)
+        else
         {
-            tft.setCursor(190, 290);
-            tft.println(data_Q);
-        }
-        else if (100 <= data_Q && data_Q <= 999)
-        {
-            tft.setCursor(180, 290);
-            tft.println(data_Q);
-        }
-        else if (1000 <= data_Q && data_Q <= 9999)
-        {
-            tft.setCursor(175, 290);
-            tft.println(data_Q);
+            data_N_new = data_N;
+            data_S_new = data_S;
+            data_V_new = data_V;
+            data_F_new = data_F;
+            data_Q_new = data_Q;
+
+            tft.setFreeFont(&nulshock_bd12pt7b);
+
+            tft.setTextColor(ILI9341_BLACK);
+            tft.drawString("N", 67, 175);
+            tft.drawString("S", 153, 175);
+            tft.drawString("V", 30, 240);
+            tft.drawString("F", 115, 240);
+            tft.drawString("Q", 190, 240);
+
+            tft.setFreeFont(&nulshock_bd9pt7b);
+
+            if (data_N_new != data_N_old)
+            {
+                tft.fillRect(0, 205, 120, 30, ILI9341_WHITE);
+
+                data_N_old = data_N_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
+
+            if (0 <= data_N && data_N <= 9)
+            {
+                tft.setCursor(72, 220);
+                tft.println(data_N);
+            }
+            else if (10 <= data_N && data_N <= 99)
+            {
+                tft.setCursor(65, 220);
+                tft.println(data_N);
+            }
+            else if (100 <= data_N && data_N <= 999)
+            {
+                tft.setCursor(58, 220);
+                tft.println(data_N);
+            }
+            else if (1000 <= data_N && data_N <= 9999)
+            {
+                tft.setCursor(50, 220);
+                tft.println(data_N);
+            }
+
+            if (data_S_new != data_S_old)
+            {
+                tft.fillRect(120, 205, 120, 30, ILI9341_WHITE);
+
+                data_S_old = data_S_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
+
+            if (0 <= data_S && data_S <= 9)
+            {
+                tft.setCursor(157, 220);
+                tft.println(data_S);
+            }
+            else if (10 <= data_S && data_S <= 99)
+            {
+                tft.setCursor(150, 220);
+                tft.println(data_S);
+            }
+            else if (100 <= data_S && data_S <= 999)
+            {
+                tft.setCursor(143, 220);
+                tft.println(data_S);
+            }
+            else if (1000 <= data_S && data_S <= 9999)
+            {
+                tft.setCursor(135, 220);
+                tft.println(data_S);
+            }
+
+            if (data_V_new != data_V_old)
+            {
+                tft.fillRect(0, 275, 80, 30, ILI9341_WHITE);
+
+                data_V_old = data_V_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
+
+            if (0 <= data_V && data_V <= 9)
+            {
+                tft.setCursor(37, 290);
+                tft.println(data_V);
+            }
+            else if (10 <= data_V && data_V <= 99)
+            {
+                tft.setCursor(30, 290);
+                tft.println(data_V);
+            }
+            else if (100 <= data_V && data_V <= 999)
+            {
+                tft.setCursor(20, 290);
+                tft.println(data_V);
+            }
+            else if (1000 <= data_V && data_V <= 9999)
+            {
+                tft.setCursor(15, 290);
+                tft.println(data_V);
+            }
+
+            if (data_F_new != data_F_old)
+            {
+                tft.fillRect(80, 275, 80, 30, ILI9341_WHITE);
+
+                data_F_old = data_F_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
+
+            if (0 <= data_F && data_F <= 9)
+            {
+                tft.setCursor(117, 290);
+                tft.println(data_F);
+            }
+            else if (10 <= data_F && data_F <= 99)
+            {
+                tft.setCursor(110, 290);
+                tft.println(data_F);
+            }
+            else if (100 <= data_F && data_F <= 999)
+            {
+                tft.setCursor(100, 290);
+                tft.println(data_F);
+            }
+            else if (1000 <= data_F && data_F <= 9999)
+            {
+                tft.setCursor(95, 290);
+                tft.println(data_F);
+            }
+
+            if (data_Q_new != data_Q_old)
+            {
+                tft.fillRect(160, 275, 80, 30, ILI9341_WHITE);
+
+                data_Q_old = data_Q_new;
+            }
+
+            tft.setTextColor(ILI9341_BLACK);
+
+            if (0 <= data_Q && data_Q <= 9)
+            {
+                tft.setCursor(197, 290);
+                tft.println(data_Q);
+            }
+            else if (10 <= data_Q && data_Q <= 99)
+            {
+                tft.setCursor(190, 290);
+                tft.println(data_Q);
+            }
+            else if (100 <= data_Q && data_Q <= 999)
+            {
+                tft.setCursor(180, 290);
+                tft.println(data_Q);
+            }
+            else if (1000 <= data_Q && data_Q <= 9999)
+            {
+                tft.setCursor(175, 290);
+                tft.println(data_Q);
+            }
         }
 
         flag = 0;
+    }
+
+    if (((delay_reset + 5000) < millis()) && (flag_reset == 1))
+    {
+        flag_reset = 0;
     }
 }
 
