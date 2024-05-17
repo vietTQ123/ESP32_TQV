@@ -18,20 +18,20 @@ void TFT_Screen()
 {   
     tft.setFreeFont(&FreeSans12pt7b);
     tft.setTextColor(TFT_WHITE);
-    tft.drawString ("AIoT PTIT",65,26);
+    tft.drawString ("AIoT PTIT",65,35);
 
     tft.setFreeFont(&Oswald_Regular24pt7b);
     tft.setTextColor(TFT_WHITE);
-    tft.drawString ("29",30,70);
-    tft.drawCircle(85, 80, 6, TFT_WHITE);
+    tft.drawString ("29",30,80);
+    tft.drawCircle(85, 90, 5, TFT_WHITE);
     tft.setFreeFont(&FreeSansBold12pt7b);
-    tft.drawString("C",98,75);
+    tft.drawString("C",98,85);
 
     tft.setFreeFont(&FreeMono24pt7b);
-    tft.drawString("/",115,75);
+    tft.drawString("/",115,85);
 
     tft.setFreeFont(&Oswald_Regular24pt7b);
     tft.setTextColor(TFT_WHITE);
-    tft.drawString ("83",145,70);
-    tft.drawString ("%",200,82,4);
+    tft.drawString ("83",145,80);
+    tft.drawString ("%",200,93,4);
 }
