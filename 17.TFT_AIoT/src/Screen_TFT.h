@@ -12,7 +12,7 @@
 
 void TFT_Setup(void);
 void TFT_Screen(int temperature, int humidity);
-void TFT_Clean(void);
+void TFT_Clear(void);
 
 
 #endif

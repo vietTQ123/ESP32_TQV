@@ -37,16 +37,7 @@ void TFT_Screen(int temperature, int humidity)
     tft.drawString ("%",200,93,4);
 }
 
-void TFT_Clean(void)
+void TFT_Clear(void)
 {
     tft.pushImage(0,0,240,240,sky);
 }
-
-
-// #define TFT_MOSI 15 // In some display driver board, it might be written as "SDA" and so on.
-// #define TFT_SCLK 14
-// #define TFT_CS   5  // Chip select control pin
-// #define TFT_DC   27  // Data Command control pin
-// #define TFT_RST  33  // Reset pin (could connect to Arduino RESET pin)
-
-// #define TOUCH_CS 21     // Chip select pin (T_CS) of touch screen
