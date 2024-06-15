@@ -9,10 +9,13 @@
 #include <Fonts/GFXFF/Oswald_Regular16pt7b.h>
 #include <Fonts/GFXFF/Oswald_Regular12pt7b.h>
 #include <Fonts/GFXFF/Oswald_Regular24pt7b.h>
+#include <Fonts/GFXFF/Roboto_Bold35pt7b.h>
+#include <Fonts/GFXFF/Roboto_Bold12pt7b.h>
 
 void TFT_Setup(void);
-void TFT_Screen(int temperature, int humidity);
-void TFT_Clear(void);
-
+void TFT_Screen_Temperature(int temperature, int humidity);
+void TFT_Screen_Clock(void);
+void TFT_Clear_Temperature(void);
+void TFT_Clear_Clock(void);
 
 #endif

@@ -17,28 +17,32 @@ void setup()
 
 void loop()
 {
-  Send_Data(Current_temp(),Current_humi());
 
-  temperature_new = Current_temp();
-  humidity_new = Current_humi();
+  // Send_Data(Current_temp(),Current_humi());
 
-  if (temperature_new != temperature_old)
-  {
+  // temperature_new = Current_temp();
+  // humidity_new = Current_humi();
 
-    TFT_Clear();
+  // if (temperature_new != temperature_old)
+  // {
 
-    temperature_old = temperature_new;
+  //   TFT_Clear_Temperature();
 
-  }
+  //   temperature_old = temperature_new;
 
-  if (humidity_new != humidity_old)
-  {
+  // }
 
-    TFT_Clear();
+  // if (humidity_new != humidity_old)
+  // {
 
-    humidity_old = humidity_new;
+  //   TFT_Clear_Temperature();
 
-  }
+  //   humidity_old = humidity_new;
+
+  // }
   
-  TFT_Screen(Current_temp(), Current_humi());
+  // TFT_Screen_Temperature(Current_temp(), Current_humi());
+
+  TFT_Screen_Clock();
+
 }

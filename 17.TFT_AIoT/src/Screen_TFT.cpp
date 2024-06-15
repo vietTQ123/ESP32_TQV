@@ -2,7 +2,7 @@
 
 TFT_eSPI tft = TFT_eSPI();
 
-void TFT_Setup()
+void TFT_Setup(void)
 {
     Serial.begin(9600);
     
@@ -11,10 +11,12 @@ void TFT_Setup()
     tft.fillScreen(TFT_WHITE);
     tft.setSwapBytes(true);
 
-    tft.pushImage(0,0,240,240,sky);
+    //tft.pushImage(0,0,240,240,sky);
+
+    tft.pushImage(0,0,240,240,winter);
 }
 
-void TFT_Screen(int temperature, int humidity)
+void TFT_Screen_Temperature(int temperature, int humidity)
 {   
 
     tft.setFreeFont(&FreeSans12pt7b);
@@ -37,7 +39,21 @@ void TFT_Screen(int temperature, int humidity)
     tft.drawString ("%",200,93,4);
 }
 
-void TFT_Clear(void)
+void TFT_Screen_Clock(void)
+{
+    tft.setFreeFont(&Roboto_Bold35pt7b);
+    tft.setTextColor(TFT_WHITE);
+    tft.drawString ("11:25",30,85);
+    tft.setFreeFont(&FreeSans12pt7b);
+    tft.drawString ("SAT 15 JUN",57,55);
+}
+
+void TFT_Clear_Clock(void)
+{
+    tft.pushImage(0,0,240,240,winter);
+}
+
+void TFT_Clear_Temperature(void)
 {
     tft.pushImage(0,0,240,240,sky);
 }
