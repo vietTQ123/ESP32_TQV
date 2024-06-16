@@ -41,11 +41,21 @@ void TFT_Screen_Temperature(int temperature, int humidity)
 
 void TFT_Screen_Clock(void)
 {
+    tft.setFreeFont(&FreeSans12pt7b);
+    tft.setTextColor(TFT_WHITE);
+    tft.drawString ("SUN",54,55);
+    tft.drawString ("16",107,55);
+    tft.drawString ("JUN",137,55);
+
     tft.setFreeFont(&Roboto_Bold35pt7b);
     tft.setTextColor(TFT_WHITE);
-    tft.drawString ("11:25",30,85);
-    tft.setFreeFont(&FreeSans12pt7b);
-    tft.drawString ("SAT 15 JUN",57,55);
+    tft.drawString ("0",25,85);
+    tft.drawString ("0",65,85);
+    tft.drawString (":",110,85);
+    tft.drawString ("0",135,85);
+    tft.drawString ("0",175,85);
+
+    
 }
 
 void TFT_Clear_Clock(void)
