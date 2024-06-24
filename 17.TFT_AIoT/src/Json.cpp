@@ -9,5 +9,24 @@ void Send_Data(int temperature, int humidity)
 
     serializeJson(doc, Serial);
   
-    Serial.println(); // Kết thúc dòng
+    Serial.println(); 
+}
+
+void Receive_Data()
+{
+    if (Serial.available()) 
+    {
+        String jsonMessage = Serial.readStringUntil('\n'); 
+
+        StaticJsonDocument<200> doc; 
+
+        DeserializationError error = deserializeJson(doc, jsonMessage); 
+
+        if (error) 
+        {
+            Serial.print("deserializeJson() failed: ");
+            Serial.println(error.f_str());
+            return;
+        }
+    }
 }
