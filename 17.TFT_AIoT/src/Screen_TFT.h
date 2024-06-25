@@ -15,7 +15,7 @@
 
 void TFT_Setup(void);
 void TFT_Screen_Temperature(int temperature, int humidity);
-void TFT_Screen_Clock(/*String day, String date, String month, int hour, int minute*/);
+void TFT_Screen_Clock(String day, String date, String month, int hour, int minute);
 void TFT_Clear_Temperature(void);
 void TFT_Clear_Clock(void);
 

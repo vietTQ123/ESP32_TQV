@@ -6,9 +6,9 @@ extern String data_weekday;
 extern String data_date;
 extern String data_month;
 extern String data_year;
-extern String data_seconds;
-extern String data_minutes;
-extern String data_hour;
+extern int data_seconds;
+extern int data_minutes;
+extern int data_hour;
 extern int data_button;
 extern int data_signal;
 

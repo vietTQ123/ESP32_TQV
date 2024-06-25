@@ -4,7 +4,7 @@ TFT_eSPI tft = TFT_eSPI();
 
 void TFT_Setup(void)
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
     
     tft.init();
     tft.setRotation(0);
@@ -37,32 +37,32 @@ void TFT_Screen_Temperature(int temperature, int humidity)
     tft.drawString ("%",200,93,4);
 }
 
- void TFT_Screen_Clock(/*String day, String date, String month, int hour, int minute*/)
+ void TFT_Screen_Clock(String day, String date, String month, int hour, int minute)
 {
     tft.setFreeFont(&FreeSans12pt7b);
     tft.setTextColor(TFT_WHITE);
-    tft.drawString ("SUN",54,55);
-    tft.drawString ("16",107,55);
-    tft.drawString ("JUN",137,55);
+    tft.drawString (day,65,55);
+    tft.drawString (date,110,55);
+    tft.drawString (month,140,55);
 
     tft.setFreeFont(&Roboto_Bold35pt7b);
-    // tft.setTextColor(TFT_WHITE);
-    // tft.setCursor(25,85);
-    // tft.print((hour / 10) % 10);
-    // tft.setCursor(65,85);
-    // tft.print(hour % 10);
-    // tft.setCursor(110,85);
-    // tft.print(":");
-    // tft.setCursor(135,85);
-    // tft.print((minute / 10) % 10);
-    // tft.setCursor(175,85);
-    // tft.print(minute % 10);
+    tft.setTextColor(TFT_WHITE);
+    tft.setCursor(25,135);
+    tft.print((hour / 10) % 10);
+    tft.setCursor(65,135);
+    tft.print(hour % 10);
+    tft.setCursor(110,135);
+    tft.print(":");
+    tft.setCursor(135,135);
+    tft.print((minute / 10) % 10);
+    tft.setCursor(175,135);
+    tft.print(minute % 10);
 
-    tft.drawString ("0",25,85);
-    tft.drawString ("0",65,85);
-    tft.drawString (":",110,85);
-    tft.drawString ("0",135,85);
-    tft.drawString ("0",175,85);
+    // tft.drawString ("0",25,85);
+    // tft.drawString ("0",65,85);
+    // tft.drawString (":",110,85);
+    // tft.drawString ("0",135,85);
+    // tft.drawString ("0",175,85);
 }
 
 void TFT_Clear_Clock(void)

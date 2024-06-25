@@ -4,9 +4,9 @@ String data_weekday;
 String data_date;
 String data_month;
 String data_year;
-String data_seconds;
-String data_minutes;
-String data_hour;
+int data_seconds;
+int data_minutes;
+int data_hour;
 int data_button;
 int data_signal;
 
@@ -18,36 +18,52 @@ void Send_Data(int temperature, int humidity)
     doc["Humidity"] = humidity;
 
     serializeJson(doc, Serial);
-  
-    Serial.println(); 
+
+    Serial.println();
 }
 
 void Receive_Data()
 {
-    if (Serial.available()) 
+    if (Serial.available())
     {
-        String jsonMessage = Serial.readStringUntil('\n'); 
+        String jsonMessage = Serial.readStringUntil('\n');
 
-        DynamicJsonDocument doc (1024) ; 
+        DynamicJsonDocument doc(1024);
 
-        DeserializationError error = deserializeJson(doc, jsonMessage); 
+        DeserializationError error = deserializeJson(doc, jsonMessage);
 
-        if (error) 
+        if (error)
         {
             Serial.print("deserializeJson() failed: ");
             Serial.println(error.f_str());
             return;
         }
 
-        // data_weekday = doc["Weekday"];
-        // data_date = doc["Date"];
-        // data_month = doc["Month"];
-        // data_year = doc["Year"];
-        // data_seconds = doc["Seconds"];
-        // data_minutes = doc["Minutes"];
-        // data_hour = doc["Hour"];
-        data_button = doc["Button"];
-        data_signal = doc["Signal"];
-    }
+        data_weekday = doc["Weekday"].as<String>();
+        data_date = doc["Date"].as<String>();
+        data_month = doc["Month"].as<String>();
+        data_year = doc["Year"].as<String>();
+        data_seconds = doc["Seconds"].as<int>();
+        data_minutes = doc["Minutes"].as<int>();
+        data_hour = doc["Hour"].as<int>();
+        data_button = doc["Button"].as<int>();
+        data_signal = doc["Signal"].as<int>();
 
+        Serial.print(data_weekday);
+        Serial.print(" / ");
+        Serial.print(data_date);
+        Serial.print(" / ");
+        Serial.print(data_month);
+        Serial.print(" / ");
+        Serial.print(data_year);
+        Serial.print(" / ");
+        Serial.print(data_seconds);
+        Serial.print(" / ");
+        Serial.print(data_minutes);
+        Serial.print(" / ");
+        Serial.print(data_hour);
+        Serial.print(" / ");
+        Serial.print(data_button);
+        Serial.println();
+    }
 }
