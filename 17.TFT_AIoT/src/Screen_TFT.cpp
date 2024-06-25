@@ -2,11 +2,6 @@
 
 TFT_eSPI tft = TFT_eSPI();
 
-// int temperature_new;
-// int temperature_old;
-// int humidity_new;
-// int humidity_old;
-
 void TFT_Setup(void)
 {
     Serial.begin(9600);
