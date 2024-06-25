@@ -15,7 +15,14 @@ int hour_old;
 int minutes_old;
 int minutes_new;
 
-int count_srceen = 0;
+String day_new;
+String day_old;
+
+String date_new;
+String date_old;
+
+String month_new;
+String month_old;
 
 int flag_srceen_1 = 1;
 int flag_srceen_2 = 1;
@@ -38,8 +45,13 @@ void loop()
 
   temperature_new = BME_Temp();
   humidity_new = BME_Humi();
-  hour_new = data_hour ;
-  minutes_new = data_minutes ;
+
+  hour_new = data_hour;
+  minutes_new = data_minutes;
+
+  day_new = data_weekday;
+  date_new = data_date;
+  month_new = data_month;
 
   if (((delay_send_data + 5000) < millis()) && (flag_send_data == 1))
   {
@@ -103,6 +115,27 @@ void loop()
       TFT_Clear_Clock();
 
       minutes_old = minutes_new;
+    }
+
+    if (day_new != day_old)
+    {
+      TFT_Clear_Clock();
+
+      day_old = day_new;
+    }
+
+    if (date_new != date_old)
+    {
+      TFT_Clear_Clock();
+
+      date_old = date_new;
+    }
+
+    if (month_new != month_old)
+    {
+      TFT_Clear_Clock();
+
+      month_old = month_new;
     }
 
     TFT_Screen_Clock(data_weekday, data_date, data_month, data_hour, data_minutes);

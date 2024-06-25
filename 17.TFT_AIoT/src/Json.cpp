@@ -48,22 +48,5 @@ void Receive_Data()
         data_hour = doc["Hour"].as<int>();
         data_button = doc["Button"].as<int>();
         data_signal = doc["Signal"].as<int>();
-
-        Serial.print(data_weekday);
-        Serial.print(" / ");
-        Serial.print(data_date);
-        Serial.print(" / ");
-        Serial.print(data_month);
-        Serial.print(" / ");
-        Serial.print(data_year);
-        Serial.print(" / ");
-        Serial.print(data_seconds);
-        Serial.print(" / ");
-        Serial.print(data_minutes);
-        Serial.print(" / ");
-        Serial.print(data_hour);
-        Serial.print(" / ");
-        Serial.print(data_button);
-        Serial.println();
     }
 }
