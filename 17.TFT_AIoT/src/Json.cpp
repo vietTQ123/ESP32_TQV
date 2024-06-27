@@ -17,16 +17,14 @@ void Send_Data(int temperature, int humidity)
     doc["Temperature"] = temperature;
     doc["Humidity"] = humidity;
 
-    serializeJson(doc, Serial);
-
     Serial.println();
 }
 
 void Receive_Data()
 {
-    if (Serial.available())
+    if (Serial2.available())
     {
-        String jsonMessage = Serial.readStringUntil('\n');
+        String jsonMessage = Serial2.readStringUntil('\n');
 
         DynamicJsonDocument doc(1024);
 
@@ -48,5 +46,6 @@ void Receive_Data()
         data_hour = doc["Hour"].as<int>();
         data_button = doc["Button"].as<int>();
         data_signal = doc["Signal"].as<int>();
+
     }
 }
