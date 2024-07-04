@@ -40,6 +40,11 @@ void Receive_Data()
             Serial.print("deserializeJson() failed: ");
             Serial.println(error.f_str());
             return;
+
+            digitalWrite(LED_STATUS,LOW);
+            delay(500);
+            digitalWrite(LED_STATUS,HIGH);
+            delay(500);
         }
 
         data_weekday = doc["Weekday"].as<String>();

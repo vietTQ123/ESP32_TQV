@@ -3,6 +3,11 @@
 #include "BME_280.h"
 #include "timer.h"
 
+#define BUTTON 2
+
+int button_new;
+int button_old;
+
 int temperature_new;
 int temperature_old;
 
@@ -26,16 +31,21 @@ String month_old;
 
 int flag_srceen_1 = 1;
 int flag_srceen_2 = 1;
-int flag_send_data = 0;
 
+int flag_send_data = 0;
 int delay_send_data = 0;
 
 void IRAM_ATTR check_status();
 
 void setup()
 {
+  pinMode(BUTTON, INPUT);
+  pinMode(LED_STATUS, OUTPUT);
+
   TFT_Setup();
+
   BME_280_setup();
+
   Setup_Timer();
 }
 
@@ -43,8 +53,7 @@ void loop()
 {
   Receive_Data();
 
-  temperature_new = BME_Temp();
-  humidity_new = BME_Humi();
+  button_new = digitalRead(BUTTON);
 
   hour_new = data_hour;
   minutes_new = data_minutes;
@@ -60,10 +69,21 @@ void loop()
 
   if (flag_send_data == 0)
   {
+    temperature_new = BME_Temp();
+    humidity_new = BME_Humi();
+
     Send_Data(BME_Temp(), BME_Humi());
+
     flag_send_data = 1;
     delay_send_data = millis();
   }
+
+  if(button_new == 0 && button_old == 1)
+  {
+    data_button = !data_button;
+  }
+
+  button_old = button_new;
 
   if (data_button == 0)
   {
@@ -72,6 +92,7 @@ void loop()
     if (flag_srceen_1 == 1)
     {
       TFT_Clear_Temperature();
+
       flag_srceen_1 = 0;
     }
 
@@ -91,15 +112,17 @@ void loop()
       humidity_old = humidity_new;
     }
 
-    TFT_Screen_Temperature(BME_Temp(), BME_Humi());
+    TFT_Screen_Temperature(temperature_new, humidity_new);
   }
-  else
+
+  if (data_button == 1)
   {
     flag_srceen_1 = 1;
 
     if (flag_srceen_2 == 1)
     {
       TFT_Clear_Clock();
+
       flag_srceen_2 = 0;
     }
 
@@ -140,4 +163,7 @@ void loop()
 
     TFT_Screen_Clock(data_weekday, data_date, data_month, data_hour, data_minutes);
   }
+
+
+
 }

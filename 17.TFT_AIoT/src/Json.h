@@ -2,6 +2,9 @@
 #define __JSON__
 
 #include "ArduinoJson.h"
+
+#define LED_STATUS 25
+
 extern String data_weekday;
 extern String data_date;
 extern String data_month;
