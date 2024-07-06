@@ -10,10 +10,7 @@
 
 #define DEGUB_CONNECT_WIFI 1
 
-extern const char *ssid;
-extern const char *password;
-
 void Wifi_Connect(void);
-String HTTP_GETRequest(String id, String stt);
+String HTTP_GETRequest(String id, String stt, long runningTime);
 
 #endif

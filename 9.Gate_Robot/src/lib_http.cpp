@@ -1,11 +1,10 @@
 #include "lib_http.h"
 
-String URL = "http://192.168.1.224:3000/api/v1/update-match-result?";
+String URL = "http://10.42.0.1:3000/api/v1/update-match-result?";
 
 #if DEGUB_CONNECT_WIFI
-
-const char *ssid = "Thanh Trung";      // Replace with your WiFi SSID
-const char *password = "17062009";  // Replace with your WiFi password
+const char* ssid = "OpenWrt";
+const char* password = "12345678";
 
 void Wifi_Connect(void)
 {
@@ -13,25 +12,25 @@ void Wifi_Connect(void)
     Serial.println("Connecting");
     while(WiFi.status() != WL_CONNECTED) 
     {
-        Connecting_SSD_1306();
-        Serial.print(".");
-        delay(500);
+      Connecting_SSD_1306();
+      delay(100);
+      Serial.print(".");
     }
-    Connected_SSD_1306();
-    delay(500);
     Serial.println("");
     Serial.print("Connected to WiFi network with IP Address: ");
     Serial.println(WiFi.localIP());
+    Connected_SSD_1306();
+    delay(500);
 }
-
 #endif
 
-String HTTP_GETRequest(String id, String stt) 
+
+String HTTP_GETRequest(String id, String stt, long runningTime)
 {
   WiFiClient client;
   HTTPClient http;
 
-  String API_URL = URL + "id=" + id + "&stt=" + stt;
+  String API_URL = URL + "id=" + id + "&stt=" + stt + "&runningTime=" + runningTime;
     
   // Your Domain name with URL path or IP address with path
   http.begin(client, API_URL);

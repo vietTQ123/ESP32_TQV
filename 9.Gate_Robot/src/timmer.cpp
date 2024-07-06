@@ -13,7 +13,7 @@ int next_screen = 0;
 void IRAM_ATTR check_status()
 {
   flag_pause = 1;
-  if(count == 1)
+  if(count_stt == 1)
   {
     racing_time_ms++;
     if(racing_time_ms > 999)
@@ -33,7 +33,7 @@ void IRAM_ATTR check_status()
       racing_time_ms = 0;
     }
   }
-  if(count == 2)
+  if(count_stt == 2)
   {
     next_screen++;
     {
@@ -41,7 +41,7 @@ void IRAM_ATTR check_status()
       {
         next_screen  = 0;
 
-        count = 0;
+        count_stt = 0;
         racing_time_ms = 0;
         racing_time_second = 0;
         racing_time_minute = 0;
@@ -61,3 +61,4 @@ void Setup_Timer()
   timerAlarmWrite(Timer0_Cfg, 10, true); //1ms
   timerAlarmEnable(Timer0_Cfg);
 }
+

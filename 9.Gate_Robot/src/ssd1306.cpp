@@ -1,5 +1,5 @@
 #include <ssd1306.h>
-#include <mqtt.h>
+
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
@@ -38,7 +38,7 @@ void Waiting_SSD_1306()
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.setCursor(20, 37);
-    display.println("Waiting......");
+    display.println("Waiting...");
     display.display();
 }
 
@@ -52,6 +52,7 @@ void Reset_SSD_1306()
     display.println("Reset.....");
     display.display();
 }
+
 
 void Start_SSD_1306()
 {
