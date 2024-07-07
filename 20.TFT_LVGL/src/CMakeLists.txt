@@ -1,0 +1,22 @@
+SET(SOURCES screens/ui_Screen2.c
+    screens/ui_Screen3.c
+    screens/ui_Screen4.c
+    screens/ui_Screen5.c
+    ui.c
+    components/ui_comp_hook.c
+    ui_helpers.c
+    ui_events.c
+    images/ui_img_bg_png.c
+    images/ui_img_armhour_png.c
+    images/ui_img_armminute_png.c
+    images/ui_img_armsecond_png.c
+    images/ui_img_screen_temp_png.c
+    images/ui_img_screen_clock_png.c
+    images/ui_img_srceen_qr_png.c
+    fonts/ui_font_Oswald_Regular_24.c
+    fonts/ui_font_Oswald_Regular_46.c
+    fonts/ui_font_Roboto_Bold_80.c
+    fonts/ui_font_Saira_Stencil_One_Regular_30.c
+    fonts/ui_font_SFMono_Bold_30.c)
+
+add_library(ui ${SOURCES})
