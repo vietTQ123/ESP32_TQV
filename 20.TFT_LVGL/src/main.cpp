@@ -93,8 +93,6 @@ void setup()
 
     ui_init();
 
-    lv_disp_load_scr(ui_Screen2);
-
     BME_280_setup();
 
     Setup_Timer();
@@ -114,18 +112,21 @@ void loop()
 
         is_device_connected = data_signal;
 
-        if(is_device_connected == 0){
+        if (is_device_connected == 0)
+        {
             lv_disp_load_scr(ui_Screen5);
         }
-        else{
-            lv_disp_load_scr(ui_Screen2);
+        else
+        {
+            lv_disp_load_scr(ui_Screen1);
             Screen_next = SCREEN_2;
         }
     }
 
     lv_timer_handler(); /* let the GUI do its work */
 
-    if(is_device_connected == 0){
+    if (is_device_connected == 0)
+    {
         return;
     }
 
@@ -149,16 +150,23 @@ void loop()
         switch (Screen_next)
         {
         case SCREEN_1:
-            lv_disp_load_scr(ui_Screen2);
+            lv_disp_load_scr(ui_Screen1);
             Screen_next = SCREEN_2;
             break;
         case SCREEN_2:
-
-            lv_disp_load_scr(ui_Screen3);
+            lv_disp_load_scr(ui_Screen2);
             Screen_next = SCREEN_3;
             break;
         case SCREEN_3:
+            lv_disp_load_scr(ui_Screen3);
+            Screen_next = SCREEN_4;
+            break;
+        case SCREEN_4:
             lv_disp_load_scr(ui_Screen4);
+            Screen_next = SCREEN_5;
+            break;
+        case SCREEN_5:
+            lv_disp_load_scr(ui_Screen6);
             Screen_next = SCREEN_1;
             break;
         default:
