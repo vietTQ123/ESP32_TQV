@@ -55,8 +55,7 @@ extern lv_obj_t * ui_minute_2;
 // SCREEN: ui_Screen5
 void ui_Screen5_screen_init(void);
 extern lv_obj_t * ui_Screen5;
-extern lv_obj_t * ui_Image2;
-extern lv_obj_t * ui_Image3;
+extern lv_obj_t * ui_Screen_QR;
 // SCREEN: ui_Screen6
 void ui_Screen6_screen_init(void);
 extern lv_obj_t * ui_Screen6;
@@ -74,13 +73,8 @@ LV_IMG_DECLARE(ui_img_armminute_png);    // assets/armMinute.png
 LV_IMG_DECLARE(ui_img_armsecond_png);    // assets/armSecond.png
 LV_IMG_DECLARE(ui_img_screen_temp_png);    // assets/Screen_Temp.png
 LV_IMG_DECLARE(ui_img_screen_clock_png);    // assets/Screen_Clock.png
-LV_IMG_DECLARE(ui_img_srceen_qr_png);    // assets/Srceen_QR.png
+LV_IMG_DECLARE(ui_img_screen_qr_png);    // assets/Screen_QR.png
 LV_IMG_DECLARE(ui_img_aiot_team_png);    // assets/AIoT_Team.png
-LV_IMG_DECLARE(ui_img_battery_0_png);    // assets/battery_0.png
-LV_IMG_DECLARE(ui_img_battery_100_png);    // assets/battery_100.png
-LV_IMG_DECLARE(ui_img_battery_25_png);    // assets/battery_25.png
-LV_IMG_DECLARE(ui_img_battery_50_png);    // assets/battery_50.png
-LV_IMG_DECLARE(ui_img_battery_75_png);    // assets/battery_75.png
 
 
 

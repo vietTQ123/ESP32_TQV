@@ -57,8 +57,7 @@ lv_obj_t * ui_minute_2;
 // SCREEN: ui_Screen5
 void ui_Screen5_screen_init(void);
 lv_obj_t * ui_Screen5;
-lv_obj_t * ui_Image2;
-lv_obj_t * ui_Image3;
+lv_obj_t * ui_Screen_QR;
 
 
 // SCREEN: ui_Screen6
@@ -67,7 +66,6 @@ lv_obj_t * ui_Screen6;
 lv_obj_t * ui_Image15;
 lv_obj_t * ui_Label3;
 lv_obj_t * ui____initial_actions0;
-const lv_img_dsc_t * ui_imgset_battery_[5] = {&ui_img_battery_0_png, &ui_img_battery_100_png, &ui_img_battery_25_png, &ui_img_battery_50_png, &ui_img_battery_75_png};
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16

@@ -17,13 +17,8 @@ SET(SOURCES screens/ui_Screen1.c
     images/ui_img_armsecond_png.c
     images/ui_img_screen_temp_png.c
     images/ui_img_screen_clock_png.c
-    images/ui_img_srceen_qr_png.c
+    images/ui_img_screen_qr_png.c
     images/ui_img_aiot_team_png.c
-    images/ui_img_battery_0_png.c
-    images/ui_img_battery_100_png.c
-    images/ui_img_battery_25_png.c
-    images/ui_img_battery_50_png.c
-    images/ui_img_battery_75_png.c
     fonts/ui_font_Oswald_Regular_24.c
     fonts/ui_font_Oswald_Regular_46.c
     fonts/ui_font_Roboto_Bold_80.c
