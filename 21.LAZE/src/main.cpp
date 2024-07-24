@@ -5,6 +5,7 @@
 
 int stt_lazer_new = 0;
 int stt_lazer_old;
+int rpm;
 
 int count_round;
 
@@ -30,7 +31,7 @@ void loop()
   }
   if (flag_end == 1)
   {
-    Serial.println(count_round);
+    rpm = count_round/3;
     count_round = 0;
     flag_end = 0;
   }
