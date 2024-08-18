@@ -22,144 +22,161 @@ void setup()
 
 	display.display();
 	display.clearDisplay();
-	display.display();
 }
 
 void loop()
 {
 	// ^ ^ lớn
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[0][0][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[0][0][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[0][0][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[0][0][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
+	// display.clearDisplay();
 
-	// ^ ^ nhỏ
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[0][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[0][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // ^ ^ nhỏ
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[0][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[0][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// ^ ^ nhỏ cao
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[0][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[0][2][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // ^ ^ nhỏ cao
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[0][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[0][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
 	// o o lớn
 	display.clearDisplay();
 	display.drawBitmap(24, 16, peyes[1][0][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[1][0][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[1][0][1], 32, 32, WHITE);
 	display.display();
-	delay(500);
-	
-	// o o nhỏ
+	delay(2000);
 	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[1][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[1][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
 
-	// o o nhỏ cao
 	display.clearDisplay();
 	display.drawBitmap(24, 16, peyes[1][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[1][2][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[1][1][1], 32, 32, WHITE);
 	display.display();
-	delay(500);
+	delay(2000);
+	display.clearDisplay();
+
+	display.clearDisplay();
+	display.drawBitmap(24, 16, peyes[1][1][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[1][2][1], 32, 32, WHITE);
+	display.display();
+	delay(2000);
+	display.clearDisplay();
+	
+	// // o o nhỏ
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[1][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[1][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
+
+	// // o o nhỏ cao
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[1][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[1][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
 	// - - 
 	display.clearDisplay();
 	display.drawBitmap(24, 16, peyes[2][0][0], 32, 32, WHITE);
 	display.drawBitmap(72, 16, peyes[2][0][0], 32, 32, WHITE);
 	display.display();
-	delay(500);
+	delay(2000);
+	display.clearDisplay();
 	
-	// - - 
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[2][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[2][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // - - 
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[2][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[2][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// - - 
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[2][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[2][2][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // - - 
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[2][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[2][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// 0\ 0\ lớn
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[3][0][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[3][0][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // 0\ 0\ lớn
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[3][0][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[3][0][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// 0\ 0\ nhỏ
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[3][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[3][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // 0\ 0\ nhỏ
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[3][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[3][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// 0\ 0\ nhỏ cao
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[3][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[3][2][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // 0\ 0\ nhỏ cao
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[3][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[3][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
 	//-0 -0 lớn
 	display.clearDisplay();
 	display.drawBitmap(24, 16, peyes[4][0][0], 32, 32, WHITE);
 	display.drawBitmap(72, 16, peyes[4][0][0], 32, 32, WHITE);
 	display.display();
-	delay(500);
-	
-	//-0 -0 nhỏ
+	delay(2000);
 	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[4][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[4][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	
+	// //-0 -0 nhỏ
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[4][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[4][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	//-0 -0 nhỏ cao
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[4][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[4][2][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// //-0 -0 nhỏ cao
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[4][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[4][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 
-	// /0 /0 lớn
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[5][0][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[5][0][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // /0 /0 lớn
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[5][0][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[5][0][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 	
-	// /0 /0 nhỏ
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[5][1][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[5][1][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
+	// // /0 /0 nhỏ
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[5][1][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[5][1][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
 	
-	// /0 /0 nhỏ cao
-	display.clearDisplay();
-	display.drawBitmap(24, 16, peyes[5][2][0], 32, 32, WHITE);
-	display.drawBitmap(72, 16, peyes[5][2][0], 32, 32, WHITE);
-	display.display();
-	delay(500);
-	display.clearDisplay();
+	// // /0 /0 nhỏ cao
+	// display.clearDisplay();
+	// display.drawBitmap(24, 16, peyes[5][2][0], 32, 32, WHITE);
+	// display.drawBitmap(72, 16, peyes[5][2][0], 32, 32, WHITE);
+	// display.display();
+	// delay(2000);
+	// display.clearDisplay();
 
 	// /0 0\ 
 	display.clearDisplay();
 	display.drawBitmap(24, 16, peyes[5][0][0], 32, 32, WHITE);
 	display.drawBitmap(72, 16, peyes[5][0][1], 32, 32, WHITE);
 	display.display();
-	delay(3000);
+	delay(2000);
 	display.clearDisplay();
 
 	// 0\ /0
@@ -167,7 +184,7 @@ void loop()
 	display.drawBitmap(24, 16, peyes[3][0][0], 32, 32, WHITE);
 	display.drawBitmap(72, 16, peyes[3][0][1], 32, 32, WHITE);
 	display.display();
-	delay(3000);
+	delay(2000);
 	display.clearDisplay();
 
 }
