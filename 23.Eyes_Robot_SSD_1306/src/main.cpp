@@ -26,13 +26,13 @@ void setup()
 
 void loop()
 {
-	// ^ ^ lớn
-	// display.clearDisplay();
-	// display.drawBitmap(24, 16, peyes[0][0][0], 32, 32, WHITE);
-	// display.drawBitmap(72, 16, peyes[0][0][0], 32, 32, WHITE);
-	// display.display();
-	// delay(2000);
-	// display.clearDisplay();
+	//^ ^ lớn
+	display.clearDisplay();
+	display.drawBitmap(24, 16, peyes[0][0][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[0][0][0], 32, 32, WHITE);
+	display.display();
+	delay(2000);
+	display.clearDisplay();
 
 	// // ^ ^ nhỏ
 	// display.clearDisplay();
@@ -54,6 +54,27 @@ void loop()
 	display.drawBitmap(72, 16, peyes[1][0][1], 32, 32, WHITE);
 	display.display();
 	delay(2000);
+	display.clearDisplay();
+
+	display.clearDisplay();
+	display.drawBitmap(24, 16, peyes[1][0][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[1][0][1], 32, 32, WHITE);
+	display.display();
+	delay(100);
+	display.clearDisplay();
+
+	display.clearDisplay(); // Clear the display buffer
+    display.drawBitmap(24, 16, eye0, 32, 32, WHITE);
+    display.drawBitmap(72, 16, eye0, 32, 32, WHITE);
+    display.display();
+	delay(200);
+	display.clearDisplay();
+
+	display.clearDisplay();
+	display.drawBitmap(24, 16, peyes[1][0][0], 32, 32, WHITE);
+	display.drawBitmap(72, 16, peyes[1][0][1], 32, 32, WHITE);
+	display.display();
+	delay(100);
 	display.clearDisplay();
 
 	display.clearDisplay();
