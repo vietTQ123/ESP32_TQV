@@ -8,6 +8,6 @@
 
 void LM393_Setup(void);
 int LM393_Soil_Moisture(void);
-void LM393_Check_Soil_Moisture(void);
+int LM393_Check_Soil_Moisture(void);
 
 #endif

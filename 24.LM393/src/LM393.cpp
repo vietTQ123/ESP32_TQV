@@ -21,14 +21,16 @@ int LM393_Soil_Moisture()
     return percent_water;
 }
 
-void LM393_Check_Soil_Moisture()
+int LM393_Check_Soil_Moisture()
 {
     if(digitalRead(PIN_DIGITAL_LM393) == 0)
     {
         Serial.println(0);
+        return 0;
     }
     else
     {
         Serial.println(1);
+        return 1;
     }
 }
